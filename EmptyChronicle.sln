@@ -18,6 +18,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libplanet.Stun", "lib9c\.Li
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lib9c.Policy", "lib9c\Lib9c.Policy\Lib9c.Policy.csproj", "{8ECC0C5F-5CF3-4D8F-B165-BBC1E9E700CE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lib9c.Renderers", "lib9c\Lib9c.Renderers\Lib9c.Renderers.csproj", "{251656E2-6D59-4125-A190-7DE1149AC1A7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,5 +62,9 @@ Global
 		{8ECC0C5F-5CF3-4D8F-B165-BBC1E9E700CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8ECC0C5F-5CF3-4D8F-B165-BBC1E9E700CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8ECC0C5F-5CF3-4D8F-B165-BBC1E9E700CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{251656E2-6D59-4125-A190-7DE1149AC1A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{251656E2-6D59-4125-A190-7DE1149AC1A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{251656E2-6D59-4125-A190-7DE1149AC1A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{251656E2-6D59-4125-A190-7DE1149AC1A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
