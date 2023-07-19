@@ -45,7 +45,7 @@ public static class HostingExtensions
             ))
             .AddSingleton<Block>(provider =>
             {
-                if (configuration.GenesisBlockPath is {} path)
+                if (configuration.GenesisBlockPath is { } path)
                 {
                     using var client = new HttpClient();
                     var codec = new Codec();
@@ -81,7 +81,7 @@ public static class HostingExtensions
                 null
             ))
             .AddSingleton<BlockChain>();
-        
+
         // Transport
         services
             .AddSingleton<AppProtocolVersionOptions>(_ => new AppProtocolVersionOptions

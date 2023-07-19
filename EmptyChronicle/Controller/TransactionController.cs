@@ -56,7 +56,6 @@ public class TransactionController : ControllerBase
             Nonce = tx.Nonce,
             BlockIndex = blockIndex ?? 0,
             Id = tx.Id.ToString(),
-            // Actions = tx.Actions.Select(action => new ActionDto((Dictionary)action)).ToArray(),
             UpdatedAddresses = tx.UpdatedAddresses.Select(x => x.ToString()).ToArray(),
             Actions = tx.Actions.Select(action =>
             {
