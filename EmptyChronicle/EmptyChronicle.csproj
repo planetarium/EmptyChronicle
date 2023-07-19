@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Serilog.Expressions" Version="3.4.1" />
+      <PackageReference Include="Serilog.Settings.Configuration" Version="7.0.0" />
+      <PackageReference Include="Serilog.Sinks.Console" Version="4.1.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\lib9c\.Libplanet\Libplanet.Net\Libplanet.Net.csproj" />
+      <ProjectReference Include="..\lib9c\.Libplanet\Libplanet.RocksDBStore\Libplanet.RocksDBStore.csproj" />
+      <ProjectReference Include="..\lib9c\Lib9c.Policy\Lib9c.Policy.csproj" />
+      <ProjectReference Include="..\lib9c\Lib9c\Lib9c.csproj" />
+    </ItemGroup>
+
+</Project>
