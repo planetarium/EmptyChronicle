@@ -1,6 +1,5 @@
 using System.Collections.Immutable;
 using Bencodex;
-using EmptyChronicle.Action;
 using Libplanet;
 using Libplanet.Action;
 using Libplanet.Action.Loader;
@@ -12,7 +11,6 @@ using Libplanet.Net;
 using Libplanet.Net.Transports;
 using Libplanet.RocksDBStore;
 using Libplanet.Store;
-using Nekoyume.Action;
 using Nekoyume.Action.Loader;
 using Nekoyume.Blockchain.Policy;
 using Serilog;
