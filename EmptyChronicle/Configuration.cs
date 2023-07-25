@@ -1,5 +1,3 @@
-using Libplanet.Action;
-
 namespace EmptyChronicle;
 
 public class Configuration

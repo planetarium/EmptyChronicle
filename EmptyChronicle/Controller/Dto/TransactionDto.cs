@@ -1,5 +1,4 @@
 using System.Text.Json.Nodes;
-using Libplanet.Tx;
 
 namespace EmptyChronicle.Controller.Dto;
 

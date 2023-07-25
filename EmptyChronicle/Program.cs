@@ -1,4 +1,3 @@
-using Bencodex;
 using EmptyChronicle;
 using EmptyChronicle.Hosting;
 using Serilog;
@@ -17,12 +16,13 @@ Log.Logger = new LoggerConfiguration()
 var headlessConfig = new Configuration();
 config.Bind(headlessConfig);
 
-builder.Services.AddControllers();
-
 builder.Services
-    .AddLibplanetServices(headlessConfig);
+    .AddLibplanetServices(headlessConfig)
+    .AddControllers();
 
 var app = builder.Build();
+
+app.UseCors();
 
 app.MapControllers();
 

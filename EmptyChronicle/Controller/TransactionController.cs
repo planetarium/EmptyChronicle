@@ -38,7 +38,6 @@ public class TransactionController : ControllerBase
         var blockIndex = GetBlockIndex(blockHash);
         var execution = BlockChain.GetTxExecution(blockHash, txId);
         var isTxStaging = BlockChain.GetStagedTransactionIds().Contains(txId);
-        var foo = new TransactionDetailDto();
 
         return Ok(new TransactionDetailDto
         {

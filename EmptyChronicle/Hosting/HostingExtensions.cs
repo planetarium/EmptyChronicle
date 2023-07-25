@@ -40,7 +40,7 @@ public static class HostingExtensions
             .AddSingleton<IBlockPolicy>(_ => new BlockPolicySource(Log.Logger).GetPolicy())
             .AddSingleton<IStagePolicy>(_ => new VolatileStagePolicy())
             .AddSingleton<IStore>(_ => new RocksDBStore(configuration.StorePath))
-            .AddSingleton<IStateStore>(provider => new TrieStateStore(
+            .AddSingleton<IStateStore>(_ => new TrieStateStore(
                 new RocksDBKeyValueStore(Path.Combine(configuration.StorePath ?? "planet-node-chain", "states"))
             ))
             .AddSingleton<Block>(provider =>
@@ -69,10 +69,7 @@ public static class HostingExtensions
                 var genesisHash = store.IterateIndexes(cid, 0, 1).Single();
                 return store.GetBlock(genesisHash);
             })
-            .AddSingleton<IBlockChainStates>(provider => new BlockChainStates(
-                provider.GetRequiredService<IStore>(),
-                provider.GetRequiredService<IStateStore>()
-            ))
+            .AddSingleton<IBlockChainStates, BlockChainStates>()
             .AddSingleton<IActionLoader>(_ => new NCActionLoader())
             .AddSingleton<IActionEvaluator>(provider => new ActionEvaluator(
                 _ => provider.GetRequiredService<IBlockPolicy>().BlockAction,
