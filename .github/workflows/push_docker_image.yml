@@ -48,4 +48,4 @@ jobs:
           docker manifest create ${{ matrix.docker.repo }}:git-${{ github.sha }} \
             --amend ${{ matrix.docker.repo }}:git-${{ github.sha }}-amd64 \
             --amend ${{ matrix.docker.repo }}:git-${{ github.sha }}-arm64v8
-          docker manifest push ${{ matrix.docker.repo }}:git-${{ github.sha }
+          docker manifest push ${{ matrix.docker.repo }}:git-${{ github.sha }}
