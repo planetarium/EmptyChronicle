@@ -27,4 +27,4 @@ RUN apt-get update && \
 
 VOLUME /data
 
-#ENTRYPOINT ["dotnet", "EmptyChronicle.dll"]
+ENTRYPOINT ["dotnet", "EmptyChronicle.dll"]
