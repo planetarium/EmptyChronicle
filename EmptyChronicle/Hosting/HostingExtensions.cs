@@ -25,13 +25,13 @@ public static class HostingExtensions
         Configuration configuration)
     {
         var peers = configuration.PeerStrings?.Select(BoundPeer.ParsePeer).ToArray()
-            ?? Array.Empty<BoundPeer>();
+                    ?? Array.Empty<BoundPeer>();
 
         // Options
         services.AddSingleton<HostOptions>(_ => new HostOptions(
             null,
             configuration.IceServerStrings?.Select(serverString => new IceServer(serverString))
-                ?? Array.Empty<IceServer>(),
+            ?? Array.Empty<IceServer>(),
             configuration.Port ?? 31234
         ));
 
@@ -77,7 +77,29 @@ public static class HostingExtensions
                 provider.GetRequiredService<IActionLoader>(),
                 null
             ))
-            .AddSingleton<BlockChain>();
+            .AddSingleton<BlockChain>(provider =>
+            {
+                var store = provider.GetRequiredService<IStore>();
+                if (store.GetCanonicalChainId() is { } canonId)
+                {
+                    return new BlockChain(
+                        provider.GetRequiredService<IBlockPolicy>(),
+                        provider.GetRequiredService<IStagePolicy>(),
+                        provider.GetRequiredService<IStore>(),
+                        provider.GetRequiredService<IStateStore>(),
+                        provider.GetRequiredService<Block>(),
+                        provider.GetRequiredService<IBlockChainStates>(),
+                        provider.GetRequiredService<IActionEvaluator>());
+                }
+
+                return BlockChain.Create(
+                    provider.GetRequiredService<IBlockPolicy>(),
+                    provider.GetRequiredService<IStagePolicy>(),
+                    provider.GetRequiredService<IStore>(),
+                    provider.GetRequiredService<IStateStore>(),
+                    provider.GetRequiredService<Block>(),
+                    provider.GetRequiredService<IActionEvaluator>());
+            });
 
         // Transport
         services
@@ -85,9 +107,9 @@ public static class HostingExtensions
             {
                 AppProtocolVersion = AppProtocolVersion.FromToken(configuration.AppProtocolVersionToken),
                 TrustedAppProtocolVersionSigners = configuration.TrustedAppProtocolVersionSigners
-                    ?.Select(x => new PublicKey(ByteUtil.ParseHex(x)))
-                    .ToImmutableHashSet()
-                    ?? ImmutableHashSet<PublicKey>.Empty,
+                                                       ?.Select(x => new PublicKey(ByteUtil.ParseHex(x)))
+                                                       .ToImmutableHashSet()
+                                                   ?? ImmutableHashSet<PublicKey>.Empty,
             })
             .AddSingleton<ITransport>(provider => NetMQTransport.Create(
                 new PrivateKey(),
