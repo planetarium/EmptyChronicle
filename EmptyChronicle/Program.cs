@@ -22,7 +22,7 @@ builder.Services
 
 var app = builder.Build();
 
-app.UseCors();
+app.UseCors(policyBuilder => policyBuilder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 
 app.MapControllers();
 
