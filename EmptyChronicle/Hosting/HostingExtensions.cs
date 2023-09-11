@@ -1,16 +1,18 @@
 using System.Collections.Immutable;
 using Bencodex;
-using Libplanet;
+using Libplanet.Store;
 using Libplanet.Action;
 using Libplanet.Action.Loader;
 using Libplanet.Blockchain;
 using Libplanet.Blockchain.Policies;
-using Libplanet.Blocks;
+using Libplanet.Types.Blocks;
 using Libplanet.Crypto;
 using Libplanet.Net;
+using Libplanet.Net.Options;
 using Libplanet.Net.Transports;
 using Libplanet.RocksDBStore;
-using Libplanet.Store;
+using Libplanet.Common;
+using Libplanet.Action.State;
 using Nekoyume.Action.Loader;
 using Nekoyume.Blockchain.Policy;
 using Serilog;
@@ -74,8 +76,7 @@ public static class HostingExtensions
             .AddSingleton<IActionEvaluator>(provider => new ActionEvaluator(
                 _ => provider.GetRequiredService<IBlockPolicy>().BlockAction,
                 provider.GetRequiredService<IBlockChainStates>(),
-                provider.GetRequiredService<IActionLoader>(),
-                null
+                provider.GetRequiredService<IActionLoader>()
             ))
             .AddSingleton<BlockChain>(provider =>
             {
