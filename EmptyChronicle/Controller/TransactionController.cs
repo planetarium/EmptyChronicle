@@ -3,11 +3,11 @@ using System.Text.Json;
 using System.Text.Json.Nodes;
 using Bencodex.Json;
 using EmptyChronicle.Controller.Dto;
-using Libplanet;
+using Libplanet.Common;
 using Libplanet.Blockchain;
-using Libplanet.Blocks;
+using Libplanet.Types.Blocks;
 using Libplanet.Store;
-using Libplanet.Tx;
+using Libplanet.Types.Tx;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EmptyChronicle.Controller;
