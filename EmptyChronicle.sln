@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# 
+#
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmptyChronicle", "EmptyChronicle\EmptyChronicle.csproj", "{17149DFB-3B1B-40AE-9743-BB59AC4AAD15}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lib9c", "NineChronicles.Headless\Lib9c\Lib9c\Lib9c.csproj", "{F062852E-3E54-4766-BFD8-C5A1F9F926BD}"
@@ -30,6 +30,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libplanet.Store", "NineChronicles.Headless\Lib9c\.Libplanet\Libplanet.Store\Libplanet.Store.csproj", "{5653334C-1ECA-42D1-8FA4-01C3415E96F5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libplanet.Action", "NineChronicles.Headless\Lib9c\.Libplanet\Libplanet.Action\Libplanet.Action.csproj", "{D078DB5D-4A22-4999-A371-D87E11ABC7A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libplanet.Extensions.PluggedActionEvaluator", "NineChronicles.Headless\Libplanet.Extensions.PluggedActionEvaluator\Libplanet.Extensions.PluggedActionEvaluator.csproj", "{BB62C378-2537-48B2-B21E-0D95356BB8B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libplanet.Extensions.ActionEvaluatorCommonComponents", "NineChronicles.Headless\Lib9c\.Libplanet.Extensions.ActionEvaluatorCommonComponents\Libplanet.Extensions.ActionEvaluatorCommonComponents.csproj", "{9C0FAB4E-DE76-4213-AC22-A27E14D5A120}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -101,5 +105,13 @@ Global
 		{D078DB5D-4A22-4999-A371-D87E11ABC7A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D078DB5D-4A22-4999-A371-D87E11ABC7A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D078DB5D-4A22-4999-A371-D87E11ABC7A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB62C378-2537-48B2-B21E-0D95356BB8B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB62C378-2537-48B2-B21E-0D95356BB8B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB62C378-2537-48B2-B21E-0D95356BB8B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB62C378-2537-48B2-B21E-0D95356BB8B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C0FAB4E-DE76-4213-AC22-A27E14D5A120}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C0FAB4E-DE76-4213-AC22-A27E14D5A120}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C0FAB4E-DE76-4213-AC22-A27E14D5A120}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C0FAB4E-DE76-4213-AC22-A27E14D5A120}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

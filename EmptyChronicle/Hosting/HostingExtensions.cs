@@ -10,9 +10,10 @@ using Libplanet.Crypto;
 using Libplanet.Net;
 using Libplanet.Net.Options;
 using Libplanet.Net.Transports;
-using Libplanet.RocksDBStore;
 using Libplanet.Common;
 using Libplanet.Action.State;
+using Libplanet.Extensions.PluggedActionEvaluator;
+using Libplanet.Store.Trie;
 using Nekoyume.Action.Loader;
 using Nekoyume.Blockchain.Policy;
 using Serilog;
@@ -41,10 +42,11 @@ public static class HostingExtensions
         services
             .AddSingleton<IBlockPolicy>(_ => new BlockPolicySource().GetPolicy())
             .AddSingleton<IStagePolicy>(_ => new VolatileStagePolicy())
-            .AddSingleton<IStore>(_ => new RocksDBStore(configuration.StorePath))
-            .AddSingleton<IStateStore>(_ => new TrieStateStore(
-                new RocksDBKeyValueStore(Path.Combine(configuration.StorePath ?? "planet-node-chain", "states"))
-            ))
+            // .AddSingleton<IStore>(_ => new RocksDBStore(configuration.StorePath))
+            .AddSingleton<IStore>(_ => new MemoryStore())
+            // .AddSingleton<IKeyValueStore>(_ => new RocksDBKeyValueStore(Path.Combine(configuration.StorePath ?? "planet-node-chain", "states")))
+            .AddSingleton<IKeyValueStore>(_ => new MemoryKeyValueStore())
+            .AddSingleton<IStateStore>(provider => new TrieStateStore(provider.GetRequiredService<IKeyValueStore>()))
             .AddSingleton<Block>(provider =>
             {
                 if (configuration.GenesisBlockPath is { } path)
@@ -73,11 +75,11 @@ public static class HostingExtensions
             })
             .AddSingleton<IBlockChainStates, BlockChainStates>()
             .AddSingleton<IActionLoader>(_ => new NCActionLoader())
-            .AddSingleton<IActionEvaluator>(provider => new ActionEvaluator(
-                _ => provider.GetRequiredService<IBlockPolicy>().BlockAction,
-                provider.GetRequiredService<IStateStore>(),
-                provider.GetRequiredService<IActionLoader>()
-            ))
+            .AddSingleton<IActionEvaluator>(provider => new PluggedActionEvaluator(
+                "/Users/lyugeunchan/dev/company/side-projects/EmptyChronicle/osx-arm64/Lib9c.Plugin.dll",
+                "Lib9c.Plugin.PluginActionEvaluator",
+                provider.GetRequiredService<IKeyValueStore>(),
+                provider.GetRequiredService<IActionLoader>()))
             .AddSingleton<BlockChain>(provider =>
             {
                 var store = provider.GetRequiredService<IStore>();
