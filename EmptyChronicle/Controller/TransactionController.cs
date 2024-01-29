@@ -47,8 +47,8 @@ public class TransactionController : ControllerBase
             Timestamp = tx.Timestamp,
             Status = execution switch
             {
-                TxSuccess => "SUCCESS",
-                TxFailure => "FAILURE",
+                _ when !execution.Fail => "SUCCESS",
+                _ when execution.Fail => "FAILURE",
                 _ when isTxStaging => "STAGING",
                 _ => "INVALID"
             },

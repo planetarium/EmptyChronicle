@@ -39,7 +39,7 @@ public static class HostingExtensions
 
         // BlockChain
         services
-            .AddSingleton<IBlockPolicy>(_ => new BlockPolicySource(Log.Logger).GetPolicy())
+            .AddSingleton<IBlockPolicy>(_ => new BlockPolicySource().GetPolicy())
             .AddSingleton<IStagePolicy>(_ => new VolatileStagePolicy())
             .AddSingleton<IStore>(_ => new RocksDBStore(configuration.StorePath))
             .AddSingleton<IStateStore>(_ => new TrieStateStore(
@@ -75,7 +75,7 @@ public static class HostingExtensions
             .AddSingleton<IActionLoader>(_ => new NCActionLoader())
             .AddSingleton<IActionEvaluator>(provider => new ActionEvaluator(
                 _ => provider.GetRequiredService<IBlockPolicy>().BlockAction,
-                provider.GetRequiredService<IBlockChainStates>(),
+                provider.GetRequiredService<IStateStore>(),
                 provider.GetRequiredService<IActionLoader>()
             ))
             .AddSingleton<BlockChain>(provider =>

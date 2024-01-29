@@ -1,24 +1,35 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmptyChronicle", "EmptyChronicle/EmptyChronicle.csproj", "{17149DFB-3B1B-40AE-9743-BB59AC4AAD15}"
+# 
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmptyChronicle", "EmptyChronicle\EmptyChronicle.csproj", "{17149DFB-3B1B-40AE-9743-BB59AC4AAD15}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lib9c", "lib9c\Lib9c\Lib9c.csproj", "{F062852E-3E54-4766-BFD8-C5A1F9F926BD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lib9c", "NineChronicles.Headless\Lib9c\Lib9c\Lib9c.csproj", "{F062852E-3E54-4766-BFD8-C5A1F9F926BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lib9c.Abstractions", "lib9c\Lib9c.Abstractions\Lib9c.Abstractions.csproj", "{B5AF0F67-8BFF-4058-835F-194CF556EE32}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lib9c.Abstractions", "NineChronicles.Headless\Lib9c\Lib9c.Abstractions\Lib9c.Abstractions.csproj", "{B5AF0F67-8BFF-4058-835F-194CF556EE32}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libplanet", "lib9c\.Libplanet\Libplanet\Libplanet.csproj", "{7A186053-741C-434B-AD0B-DC52F72656B5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libplanet", "NineChronicles.Headless\Lib9c\.Libplanet\Libplanet\Libplanet.csproj", "{7A186053-741C-434B-AD0B-DC52F72656B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libplanet.Analyzers", "lib9c\.Libplanet\Libplanet.Analyzers\Libplanet.Analyzers.csproj", "{0D180325-5A2A-45AC-82DA-4BB1EA36F4E2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libplanet.Analyzers", "NineChronicles.Headless\Lib9c\.Libplanet\Libplanet.Analyzers\Libplanet.Analyzers.csproj", "{0D180325-5A2A-45AC-82DA-4BB1EA36F4E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libplanet.Net", "lib9c\.Libplanet\Libplanet.Net\Libplanet.Net.csproj", "{8D08A36D-C054-4B4B-8F41-B65312EDAF5B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libplanet.Net", "NineChronicles.Headless\Lib9c\.Libplanet\Libplanet.Net\Libplanet.Net.csproj", "{8D08A36D-C054-4B4B-8F41-B65312EDAF5B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libplanet.RocksDBStore", "lib9c\.Libplanet\Libplanet.RocksDBStore\Libplanet.RocksDBStore.csproj", "{C3DC289E-B1BE-40D4-AD1E-BD885140AA75}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libplanet.RocksDBStore", "NineChronicles.Headless\Lib9c\.Libplanet\Libplanet.RocksDBStore\Libplanet.RocksDBStore.csproj", "{C3DC289E-B1BE-40D4-AD1E-BD885140AA75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libplanet.Stun", "lib9c\.Libplanet\Libplanet.Stun\Libplanet.Stun.csproj", "{13D7111E-8BC9-4ABB-820E-DC80216B3CBE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libplanet.Stun", "NineChronicles.Headless\Lib9c\.Libplanet\Libplanet.Stun\Libplanet.Stun.csproj", "{13D7111E-8BC9-4ABB-820E-DC80216B3CBE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lib9c.Policy", "lib9c\Lib9c.Policy\Lib9c.Policy.csproj", "{8ECC0C5F-5CF3-4D8F-B165-BBC1E9E700CE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lib9c.Policy", "NineChronicles.Headless\Lib9c\Lib9c.Policy\Lib9c.Policy.csproj", "{8ECC0C5F-5CF3-4D8F-B165-BBC1E9E700CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lib9c.Renderers", "lib9c\Lib9c.Renderers\Lib9c.Renderers.csproj", "{251656E2-6D59-4125-A190-7DE1149AC1A7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lib9c.Renderers", "NineChronicles.Headless\Lib9c\Lib9c.Renderers\Lib9c.Renderers.csproj", "{251656E2-6D59-4125-A190-7DE1149AC1A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libplanet.Types", "NineChronicles.Headless\Lib9c\.Libplanet\Libplanet.Types\Libplanet.Types.csproj", "{E153D8FF-F7A9-413D-AC48-FCEEA72197D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libplanet.Common", "NineChronicles.Headless\Lib9c\.Libplanet\Libplanet.Common\Libplanet.Common.csproj", "{D93CBAE7-8974-452A-9F11-D3AE4325E774}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libplanet.Crypto", "NineChronicles.Headless\Lib9c\.Libplanet\Libplanet.Crypto\Libplanet.Crypto.csproj", "{A59DC657-6192-4063-B414-D41ABF2CF39B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libplanet.Store", "NineChronicles.Headless\Lib9c\.Libplanet\Libplanet.Store\Libplanet.Store.csproj", "{5653334C-1ECA-42D1-8FA4-01C3415E96F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libplanet.Action", "NineChronicles.Headless\Lib9c\.Libplanet\Libplanet.Action\Libplanet.Action.csproj", "{D078DB5D-4A22-4999-A371-D87E11ABC7A2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -66,5 +77,29 @@ Global
 		{251656E2-6D59-4125-A190-7DE1149AC1A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{251656E2-6D59-4125-A190-7DE1149AC1A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{251656E2-6D59-4125-A190-7DE1149AC1A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8187E44F-4ACD-4547-A849-000D52EDCDCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8187E44F-4ACD-4547-A849-000D52EDCDCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8187E44F-4ACD-4547-A849-000D52EDCDCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8187E44F-4ACD-4547-A849-000D52EDCDCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E153D8FF-F7A9-413D-AC48-FCEEA72197D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E153D8FF-F7A9-413D-AC48-FCEEA72197D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E153D8FF-F7A9-413D-AC48-FCEEA72197D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E153D8FF-F7A9-413D-AC48-FCEEA72197D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D93CBAE7-8974-452A-9F11-D3AE4325E774}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D93CBAE7-8974-452A-9F11-D3AE4325E774}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D93CBAE7-8974-452A-9F11-D3AE4325E774}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D93CBAE7-8974-452A-9F11-D3AE4325E774}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A59DC657-6192-4063-B414-D41ABF2CF39B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A59DC657-6192-4063-B414-D41ABF2CF39B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A59DC657-6192-4063-B414-D41ABF2CF39B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A59DC657-6192-4063-B414-D41ABF2CF39B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5653334C-1ECA-42D1-8FA4-01C3415E96F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5653334C-1ECA-42D1-8FA4-01C3415E96F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5653334C-1ECA-42D1-8FA4-01C3415E96F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5653334C-1ECA-42D1-8FA4-01C3415E96F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D078DB5D-4A22-4999-A371-D87E11ABC7A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D078DB5D-4A22-4999-A371-D87E11ABC7A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D078DB5D-4A22-4999-A371-D87E11ABC7A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D078DB5D-4A22-4999-A371-D87E11ABC7A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
