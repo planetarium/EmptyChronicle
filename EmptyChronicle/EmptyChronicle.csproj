@@ -18,6 +18,7 @@
       <ProjectReference Include="..\NineChronicles.Headless\Lib9c\.Libplanet\Libplanet.RocksDBStore\Libplanet.RocksDBStore.csproj" />
       <ProjectReference Include="..\NineChronicles.Headless\Lib9c\Lib9c.Policy\Lib9c.Policy.csproj" />
       <ProjectReference Include="..\NineChronicles.Headless\Lib9c\Lib9c\Lib9c.csproj" />
+      <ProjectReference Include="..\NineChronicles.Headless\Libplanet.Extensions.ForkableActionEvaluator\Libplanet.Extensions.ForkableActionEvaluator.csproj" />
       <ProjectReference Include="..\NineChronicles.Headless\Libplanet.Extensions.PluggedActionEvaluator\Libplanet.Extensions.PluggedActionEvaluator.csproj" />
     </ItemGroup>
 

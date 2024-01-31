@@ -35,6 +35,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libplanet.Extensions.Plugge
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libplanet.Extensions.ActionEvaluatorCommonComponents", "NineChronicles.Headless\Lib9c\.Libplanet.Extensions.ActionEvaluatorCommonComponents\Libplanet.Extensions.ActionEvaluatorCommonComponents.csproj", "{9C0FAB4E-DE76-4213-AC22-A27E14D5A120}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libplanet.Extensions.ForkableActionEvaluator", "NineChronicles.Headless\Libplanet.Extensions.ForkableActionEvaluator\Libplanet.Extensions.ForkableActionEvaluator.csproj", "{C4D75EE0-B2ED-4335-BA71-048083D93B3F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -113,5 +115,9 @@ Global
 		{9C0FAB4E-DE76-4213-AC22-A27E14D5A120}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C0FAB4E-DE76-4213-AC22-A27E14D5A120}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C0FAB4E-DE76-4213-AC22-A27E14D5A120}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4D75EE0-B2ED-4335-BA71-048083D93B3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4D75EE0-B2ED-4335-BA71-048083D93B3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4D75EE0-B2ED-4335-BA71-048083D93B3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4D75EE0-B2ED-4335-BA71-048083D93B3F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
