@@ -11,6 +11,7 @@
       <PackageReference Include="Serilog.Expressions" Version="3.4.1" />
       <PackageReference Include="Serilog.Settings.Configuration" Version="7.0.0" />
       <PackageReference Include="Serilog.Sinks.Console" Version="4.1.0" />
+      <PackageReference Include="Cocona" Version="2.2.0" />
     </ItemGroup>
 
     <ItemGroup>
@@ -20,6 +21,15 @@
       <ProjectReference Include="..\NineChronicles.Headless\Lib9c\Lib9c\Lib9c.csproj" />
       <ProjectReference Include="..\NineChronicles.Headless\Libplanet.Extensions.ForkableActionEvaluator\Libplanet.Extensions.ForkableActionEvaluator.csproj" />
       <ProjectReference Include="..\NineChronicles.Headless\Libplanet.Extensions.PluggedActionEvaluator\Libplanet.Extensions.PluggedActionEvaluator.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Update="appsettings.heimdall.json">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="appsettings.odin.json">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
     </ItemGroup>
 
 </Project>

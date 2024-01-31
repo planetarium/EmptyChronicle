@@ -1,31 +1,48 @@
+using Cocona;
 using EmptyChronicle;
 using EmptyChronicle.Hosting;
 using Serilog;
 
-var builder = WebApplication.CreateBuilder(args);
+CoconaApp.Run((
+    [Option(Description = "Sync for heimdall mainnet.")]
+    bool heimdall,
+    [Option(Description = "Sync for odin mainnet.")]
+    bool odin
+    ) =>
+{
+    var configurationFileName = (heimdall, odin) switch
+    {
+        (true, true) => throw new CommandExitedException("You must select only one of the --heimdall and --odin options.", -1),
+        (true, false) => "appsettings.heimdall.json",
+        (false, true) => "appsettings.odin.json",
+        (false, false) => throw new CommandExitedException("You must choose between the --heimdall option and the --odin option.", -1)
+    };
 
-var config = new ConfigurationBuilder()
-    .AddJsonFile("appsettings.json")
-    .AddEnvironmentVariables("PN_")
-    .Build();
+    var builder = WebApplication.CreateBuilder(args);
 
-Log.Logger = new LoggerConfiguration()
-    .ReadFrom.Configuration(config)
-    .CreateLogger();
+    var config = new ConfigurationBuilder()
+        .AddJsonFile(configurationFileName)
+        .AddEnvironmentVariables("PN_")
+        .Build();
 
-var headlessConfig = new Configuration();
-config.Bind(headlessConfig);
+    Log.Logger = new LoggerConfiguration()
+        .ReadFrom.Configuration(config)
+        .CreateLogger();
 
-builder.Services
-    .AddLibplanetServices(headlessConfig)
-    .AddControllers();
+    var headlessConfig = new Configuration();
+    config.Bind(headlessConfig);
 
-var app = builder.Build();
+    builder.Services
+        .AddLibplanetServices(headlessConfig)
+        .AddControllers();
 
-app.UseCors(policyBuilder => policyBuilder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+    var app = builder.Build();
 
-app.MapControllers();
+    app.UseCors(policyBuilder => policyBuilder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 
-app.MapGet("/", () => "Sample");
+    app.MapControllers();
 
-app.Run();
+    app.MapGet("/", () => "Sample");
+
+    app.Run();
+});
