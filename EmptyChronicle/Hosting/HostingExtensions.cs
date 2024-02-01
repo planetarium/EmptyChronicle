@@ -78,7 +78,7 @@ public static class HostingExtensions
             .AddSingleton<IActionLoader>(_ => new NCActionLoader())
             .AddSingleton<IActionEvaluator>(provider =>
             {
-                var typeName = "Lib9c.Plugin.PluginActionEvaluator";
+                const string typeName = "Lib9c.Plugin.PluginActionEvaluator";
                 var keyValueStore = provider.GetRequiredService<IKeyValueStore>();
                 var actionLoader = provider.GetRequiredService<IActionLoader>();
                 if (configuration.ActionEvaluatorRanges is not { } ranges || ranges.Length == 0)
