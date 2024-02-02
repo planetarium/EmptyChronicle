@@ -1,20 +1,34 @@
-FROM mcr.microsoft.com/dotnet/sdk:7.0-jammy AS build-env
+FROM --platform=$BUILDPLATFORM mcr.microsoft.com/dotnet/sdk:7.0-jammy AS build-env
+ARG TARGETPLATFORM
+ARG BUILDPLATFORM
 WORKDIR /app
-ARG COMMIT
 
-COPY ./lib9c/Lib9c/Lib9c.csproj ./Lib9c/
 COPY ./EmptyChronicle/EmptyChronicle.csproj ./EmptyChronicle/
-RUN dotnet restore Lib9c
-RUN dotnet restore EmptyChronicle
 
 COPY . ./
-RUN dotnet publish EmptyChronicle/EmptyChronicle.csproj \
+RUN <<EOF
+#!/bin/bash
+echo "TARGETPLATFROM=$TARGETPLATFORM"
+echo "BUILDPLATFORM=$BUILDPLATFORM"
+if [[ "$TARGETPLATFORM" = "linux/amd64" ]]
+then
+  dotnet publish EmptyChronicle/EmptyChronicle.csproj \
+    -c Release \
+    -r linux-x64 \
+    -o out \
+    --self-contained
+elif [[ "$TARGETPLATFORM" = "linux/arm64" ]]
+then
+  dotnet publish EmptyChronicle/EmptyChronicle.csproj \
     -c Release \
     -r linux-arm64 \
     -o out \
-    --self-contained \
-    --version-suffix $COMMIT
-
+    --self-contained
+else
+  echo "Not supported target platform: '$TARGETPLATFORM'."
+  exit -1
+fi
+EOF
 
 FROM mcr.microsoft.com/dotnet/aspnet:7.0
 WORKDIR /app
