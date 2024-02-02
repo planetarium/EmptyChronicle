@@ -1,5 +1,7 @@
 using Cocona;
 using EmptyChronicle;
+using EmptyChronicle.Application;
+using EmptyChronicle.Domain;
 using EmptyChronicle.Hosting;
 using Serilog;
 
@@ -34,6 +36,8 @@ CoconaApp.Run((
 
     builder.Services
         .AddLibplanetServices(headlessConfig)
+        .AddRepositories()
+        .AddApplicationServices()
         .AddControllers();
 
     var app = builder.Build();
