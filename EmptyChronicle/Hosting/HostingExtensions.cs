@@ -140,7 +140,16 @@ public static class HostingExtensions
             .AddSingleton(provider => new Swarm(
                 provider.GetRequiredService<BlockChain>(),
                 new PrivateKey(),
-                provider.GetRequiredService<ITransport>()
+                provider.GetRequiredService<ITransport>(),
+                new SwarmOptions
+                {
+                    TimeoutOptions = new TimeoutOptions
+                    {
+                        DialTimeout = TimeSpan.FromSeconds(10),
+                        GetBlocksPerBlockHashTimeout = TimeSpan.FromSeconds(10),
+                        GetTxsPerTxIdTimeout = TimeSpan.FromSeconds(10)
+                    }
+                }
             ))
             .AddHostedService<SwarmService>(provider => new SwarmService(
                 provider.GetRequiredService<Swarm>(),
