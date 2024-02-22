@@ -1,0 +1,31 @@
+using EmptyChronicle.Application.States;
+using EmptyChronicle.Utility;
+using Microsoft.AspNetCore.Mvc;
+
+namespace EmptyChronicle.Controller;
+
+[Route("/api/states")]
+[ApiController]
+public class StatesController : ControllerBase
+{
+    private readonly StatesApplication StatesApplication;
+
+    public StatesController(StatesApplication statesApplication)
+    {
+        StatesApplication = statesApplication;
+    }
+
+    [HttpGet("{address}")]
+    public ActionResult GetStatesByAddress(string address, [FromQuery(Name = "account")] string? accountAddress)
+    {
+        var state = StatesApplication.GetStateByAddress(address, accountAddress);
+        if (state is null) return NotFound();
+
+        return Ok(new
+        {
+            state.Address,
+            state.AccountAddress,
+            Value = state.Value.ToJson()
+        });
+    }
+}
