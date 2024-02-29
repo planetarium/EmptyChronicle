@@ -17,7 +17,7 @@ CoconaApp.Run((
         (true, true) => throw new CommandExitedException("You must select only one of the --heimdall and --odin options.", -1),
         (true, false) => "appsettings.heimdall.json",
         (false, true) => "appsettings.odin.json",
-        (false, false) => throw new CommandExitedException("You must choose between the --heimdall option and the --odin option.", -1)
+        (false, false) => "appsettings.heimdall.json"
     };
 
     var builder = WebApplication.CreateBuilder(args);
