@@ -17,16 +17,29 @@ public class StatesController : ControllerBase
     }
 
     [HttpGet("{address}")]
-    public ActionResult GetStatesByAddress(string address, [FromQuery(Name = "account")] string? accountAddress)
+    public ActionResult GetStatesByAddress(
+        string address,
+        [FromQuery(Name = "account")] string? accountAddress
+    )
     {
-        var state = StatesApplication.GetStateByAddress(address, accountAddress);
-        if (state is null) return NotFound();
-
-        return Ok(new
+        try
         {
-            state.Address,
-            state.AccountAddress,
-            Value = state.Value.ToJson()
-        });
+            var state = StatesApplication.GetStateByAddress(address, accountAddress);
+            if (state is null)
+                return NotFound();
+
+            return Ok(
+                new
+                {
+                    state.Address,
+                    state.AccountAddress,
+                    Value = state.Value.ToJson()
+                }
+            );
+        }
+        catch (ArgumentException)
+        {
+            return BadRequest();
+        }
     }
 }
