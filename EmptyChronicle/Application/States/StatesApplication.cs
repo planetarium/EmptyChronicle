@@ -11,10 +11,10 @@ public class StatesApplication
         StatesRepository = statesRepository;
     }
 
-    public State? GetStateByAddress(string address, string? accountAddress = null)
+    public State? GetStateByAddress(string address, string? accountAddress = null, long? blockIndex = null)
     {
         return accountAddress is null
-            ? StatesRepository.GetStateByAddress(address)
-            : StatesRepository.GetStateByAddress(address, accountAddress);
+            ? StatesRepository.GetStateByAddress(address, blockIndex)
+            : StatesRepository.GetStateByAddress(address, accountAddress, blockIndex);
     }
 }
