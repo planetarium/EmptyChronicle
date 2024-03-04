@@ -19,12 +19,13 @@ public class StatesController : ControllerBase
     [HttpGet("{address}")]
     public ActionResult GetStatesByAddress(
         string address,
-        [FromQuery(Name = "account")] string? accountAddress
+        [FromQuery(Name = "account")] string? accountAddress,
+        [FromQuery(Name = "blockIndex")] long? blockIndex
     )
     {
         try
         {
-            var state = StatesApplication.GetStateByAddress(address, accountAddress);
+            var state = StatesApplication.GetStateByAddress(address, accountAddress, blockIndex);
             if (state is null)
                 return NotFound();
 

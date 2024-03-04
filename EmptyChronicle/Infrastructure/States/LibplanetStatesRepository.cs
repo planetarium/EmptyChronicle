@@ -14,14 +14,16 @@ public class LibplanetStatesRepository : IStatesRepository
         BlockChain = blockChain;
     }
 
-    public State? GetStateByAddress(string address) => GetStateByAddress(address, ReservedAddresses.LegacyAccount.ToHex());
+    public State? GetStateByAddress(string address, long? blockIndex = null) =>
+        GetStateByAddress(address, ReservedAddresses.LegacyAccount.ToHex(), blockIndex);
 
-    public State? GetStateByAddress(string address, string accountAddress)
+    public State? GetStateByAddress(string address, string accountAddress, long? blockIndex = null)
     {
         var account = new Address(accountAddress);
+        var block = blockIndex is { } bi ? BlockChain[bi] : BlockChain.Tip;
 
         var value = BlockChain
-            .GetWorldState(BlockChain.Tip.Hash)
+            .GetWorldState(block.Hash)
             .GetAccountState(account)
             .GetState(new Address(address));
 
