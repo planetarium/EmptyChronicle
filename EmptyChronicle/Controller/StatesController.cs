@@ -1,6 +1,7 @@
 using Bencodex;
 using EmptyChronicle.Application.States;
 using EmptyChronicle.Utility;
+using Libplanet.Common;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EmptyChronicle.Controller;
@@ -35,6 +36,34 @@ public class StatesController : ControllerBase
                     state.Address,
                     state.AccountAddress,
                     Value = state.Value.ToJson()
+                }
+            );
+        }
+        catch (ArgumentException)
+        {
+            return BadRequest();
+        }
+    }
+
+    [HttpGet("{address}/raw")]
+    public ActionResult GetStatesRawByAddress(
+        string address,
+        [FromQuery(Name = "account")] string? accountAddress,
+        [FromQuery(Name = "blockIndex")] long? blockIndex
+    )
+    {
+        try
+        {
+            var state = StatesApplication.GetStateByAddress(address, accountAddress, blockIndex);
+            if (state is null)
+                return NotFound();
+
+            return Ok(
+                new
+                {
+                    state.Address,
+                    state.AccountAddress,
+                    Value = ByteUtil.Hex(new Codec().Encode(state.Value))
                 }
             );
         }
