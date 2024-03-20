@@ -1,10 +1,10 @@
 # EmptyChronicle
 
-EmptyChonicle (or 0c) is simple node for NineChronicles providing http api about block, state, etc.
+EmptyChronicle (or 0c) is simple node for NineChronicles providing HTTP APIs about block, state, etc.
 
 ## Architecture
 
-I recommend reading this section and follow this guide if you want to contribute to this proejct.
+I recommend reading this section and follow this guide if you want to contribute to this project.
 
 ```
 EmptyChronicle
@@ -18,13 +18,13 @@ EmptyChronicle
 │   └── ApplicationInjectionExtensions.cs
 │       You should add applications as dependancy into AIE.cs
 ├── Controller
-│   └── Controller (** Application Service)
+│   └── Controller
 ├── Infrastructure
 │   └── Repository (** Implementations)
 └── Program.cs
 ```
 
-I Recommend to follow these steps to add new API
+I recommend to follow these steps to add new API
 1. Create or modify domain objects with only domain logic.
     - Entity: Basically, entity should have all domain logic.
     - Repository: Interface (definition of method) to persistence entity.
