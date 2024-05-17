@@ -48,7 +48,7 @@ public static class HostingExtensions
             .AddSingleton<IBlockPolicy>(_ => new BlockPolicySource().GetPolicy())
             .AddSingleton<IStagePolicy>(_ => new VolatileStagePolicy())
             .AddSingleton<IStore>(_ => new RocksDBStore(configuration.StorePath))
-            .AddSingleton<IKeyValueStore>(_ => new RocksDBKeyValueStore(Path.Combine(configuration.StorePath ?? "planet-node-chain", "states")))
+            .AddSingleton<IKeyValueStore>(_ => new RocksDBKeyValueStore(Path.Combine(configuration.StorePath, "states")))
             .AddSingleton<IStateStore>(provider => new TrieStateStore(provider.GetRequiredService<IKeyValueStore>()))
             .AddSingleton<Block>(provider =>
             {
