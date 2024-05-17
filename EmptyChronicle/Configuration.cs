@@ -14,7 +14,8 @@ public class Configuration
     // Blockchains
     public string? GenesisBlockPath { get; init; }
 
-    public string? StorePath { get; set; }
+    public string? StorePath { get; set; } =
+        Path.Join(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "EmptyChronicle", "store");
 
     public ActionEvaluatorRange[]? ActionEvaluatorRanges { get; set; }
 
