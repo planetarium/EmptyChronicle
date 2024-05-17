@@ -1,5 +1,7 @@
 using System.Collections.Immutable;
+using System.Diagnostics;
 using System.IO.Compression;
+using System.Runtime.InteropServices;
 using Bencodex;
 using Libplanet.Store;
 using Libplanet.Action;
@@ -88,7 +90,7 @@ public static class HostingExtensions
                 var pairs = ranges.Select(range => (
                     (range.StartBlockIndex, range.EndBlockIndex),
                     (IActionEvaluator)new PluggedActionEvaluator(
-                        ResolvePluginPath(range.PluginPath),
+                        ResolvePluginPath(range.PluginPathDirectory),
                         typeName,
                         keyValueStore,
                         actionLoader
@@ -161,8 +163,10 @@ public static class HostingExtensions
 
     private static string ResolvePluginPath(string path) =>
         Uri.IsWellFormedUriString(path, UriKind.Absolute)
-            ? DownloadPlugin(path).Result
-            : path;
+            ? DownloadPlugin(new Uri(new Uri(path), GetPluginArchiveFilename()).ToString()).Result
+            : Path.Join(path, GetPluginArchiveFilename());
+
+    private static string GetPluginArchiveFilename() => $"{RuntimeInformation.RuntimeIdentifier}.zip";
 
     private static async Task<string> DownloadPlugin(string url)
     {
