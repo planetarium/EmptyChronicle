@@ -35,7 +35,7 @@ WORKDIR /app
 COPY --from=build-env /app/out .
 
 RUN apt-get update && \
-    apt-get install -y --allow-unauthenticated libc6-dev jq curl && \
+    apt-get install -y --allow-unauthenticated libc6-dev libsnappy-dev jq curl && \
     rm -rf /var/lib/apt/lists/*
 
 VOLUME /data
