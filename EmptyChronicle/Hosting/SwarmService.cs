@@ -23,6 +23,11 @@ public class SwarmService : BackgroundService
         }, stoppingToken);
 
         await _swarm.AddPeersAsync(_peers, default, cancellationToken: stoppingToken).ConfigureAwait(false);
+        await _swarm.BootstrapAsync(
+            seedPeers: _peers,
+            searchDepth: 1,
+            dialTimeout: null,
+            cancellationToken: stoppingToken).ConfigureAwait(false);
         await _swarm.PreloadAsync(cancellationToken: stoppingToken).ConfigureAwait(false);
         await _swarm.StartAsync(cancellationToken: stoppingToken).ConfigureAwait(false);
     }
