@@ -32,12 +32,11 @@ EOF
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
-RUN apt-get update && apt-get install -y libc6-dev
 COPY --from=build-env /app/out .
 
 RUN apt-get update && \
     apt-get install -y --allow-unauthenticated libc6-dev jq curl && \
-    rm -rf /var/lib/apt/lists/* 
+    rm -rf /var/lib/apt/lists/*
 
 VOLUME /data
 
